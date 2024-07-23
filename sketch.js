@@ -94,13 +94,15 @@ function setup() {
 	cards = new Group();
 	clubs = generate_clubs(cards);
 	spades = generate_spade(cards);
+	hearts = generate_heart(cards)
+	diamonds = generate_diamonds(cards);
 }
 
 
 function generate_spade(cards){
 	let card = []
 	for (let i = 0; i < 13; i++){
-		card[i] = new cards.Sprite();
+		card[i] = new cards.Sprite(280,100,60,84, 'n');
 		if (i == 0){
 			card[i].name = "ace";
 		}
@@ -118,15 +120,14 @@ function generate_spade(cards){
 		}
 		card[i].fliped = false;
 		card[i].image = SPADES[card[i].name];
-		card[i].x = 20 + i*100
-		card[i].y = 30;
+
 	}
 	return card
 }
 function generate_clubs(cards){
 	let card = []
 	for (let i = 0; i < 13; i++){
-		card[i] = new cards.Sprite();
+		card[i] = new cards.Sprite(350, 100, 60, 84, 'n');
 		if (i == 0){
 			card[i].name = "ace";
 		}
@@ -144,8 +145,54 @@ function generate_clubs(cards){
 		}
 		card[i].fliped = false;
 		card[i].image = CLUBS[card[i].name];
-		card[i].x = 20 + i*100
-		card[i].y = 0;
+	}
+	return card
+}
+function generate_heart(cards){
+	let card = []
+	for (let i = 0; i < 13; i++){
+		card[i] = new cards.Sprite(420, 100, 60, 84, 'n');
+		if (i == 0){
+			card[i].name = "ace";
+		}
+		else if (i == 10) {
+			card[i].name = "jack";
+		}
+		else if (i == 11){
+			card[i].name = "queen";
+		}
+		else if (i == 12){
+			card[i].name = "king";
+		}
+		else{
+			card[i].name = i+1;
+		}
+		card[i].fliped = false;
+		card[i].image = HEARTS[card[i].name];
+	}
+	return card
+}
+function generate_diamonds(cards){
+	let card = []
+	for (let i = 0; i < 13; i++){
+		card[i] = new cards.Sprite(490,100,60,84,'n');
+		if (i == 0){
+			card[i].name = "ace";
+		}
+		else if (i == 10) {
+			card[i].name = "jack";
+		}
+		else if (i == 11){
+			card[i].name = "queen";
+		}
+		else if (i == 12){
+			card[i].name = "king";
+		}
+		else{
+			card[i].name = i+1;
+		}
+		card[i].fliped = false;
+		card[i].image = DIAMONDS[card[i].name];
 	}
 	return card
 }
