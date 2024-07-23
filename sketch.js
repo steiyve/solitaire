@@ -96,6 +96,7 @@ function setup() {
 	spades = generate_spade(cards);
 	hearts = generate_heart(cards)
 	diamonds = generate_diamonds(cards);
+	generate_first_cell(clubs, spot1);
 }
 
 
@@ -195,6 +196,14 @@ function generate_diamonds(cards){
 		card[i].image = DIAMONDS[card[i].name];
 	}
 	return card
+}
+
+function generate_first_cell(clubs, spot1){
+	let index = Math.floor(Math.random() * 13);
+	clubs[index] = spot1.x
+	clubs[index] = spot1.y
+	console.log(index)
+	console.log("hello")
 }
 
 function draw() {
