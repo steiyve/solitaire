@@ -74,7 +74,7 @@ let spots, spot1, spot2, spot3, spot4, spot5, spot6, spot7, spotA1, spotA2, spot
 let cards;
 let cards_red, card_black;
 let diamonds, spades, hearts, clubs;
-
+let cell1, cell2, cell3, cell4, cell5, cell6, cell7;
 
 function setup() {
 	new Canvas(1315, 640);
@@ -96,7 +96,15 @@ function setup() {
 	spades = generate_spade(cards);
 	hearts = generate_heart(cards)
 	diamonds = generate_diamonds(cards);
-	generate_first_cell(clubs, spot1);
+	cell1 = generate_first_cell();
+	cell2 = generate_second_cell();
+	cell3 = generate_third_cell();
+	cell4 = generate_fourth_cell();
+	cell5 = generate_fifth_cell();
+	cell6 = generate_sixth_cell();
+	cell7 = generate_senventh_cell();
+	render_cell();
+	console.log(cell2[0]);
 }
 
 
@@ -198,12 +206,249 @@ function generate_diamonds(cards){
 	return card
 }
 
-function generate_first_cell(clubs, spot1){
+function generate_first_cell(){
 	let index = Math.floor(Math.random() * 13);
-	clubs[index] = spot1.x
-	clubs[index] = spot1.y
-	console.log(index)
-	console.log("hello")
+	clubs[index].x = 70;
+	clubs[index].y = 200;
+	console.log(clubs[index]);
+	console.log("hello");
+	return clubs[index];
+}
+
+function generate_second_cell(){
+	let cell = []
+	for (let i=0; i<2; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 140;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 140;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 140;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 140;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i == 0){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+function generate_third_cell(){
+	let cell = []
+	for (let i=0; i<3; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 210;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 210;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 210;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 210;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i < 3){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+function generate_fourth_cell(){
+	let cell = []
+	for (let i=0; i<4; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 280;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 280;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 280;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 280;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i < 4){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+function generate_fifth_cell(){
+	let cell = []
+	for (let i=0; i<5; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 350;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 350;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 350;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 350;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i < 5){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+function generate_sixth_cell(){
+	let cell = []
+	for (let i=0; i<6; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 420;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 420;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 420;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 420;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i < 6){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+function generate_senventh_cell(){
+	let cell = []
+	for (let i=0; i<7; i++){
+		let choix = Math.floor(Math.random() * 4);
+		let index = Math.floor(Math.random() * 13);
+		if (choix == 0){
+			cell[i] = clubs[index]
+			cell[i].x = 490;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 1){
+			cell[i] = spades[index]
+			cell[i].x = 490;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 2){
+			cell[i] = hearts[index]
+			cell[i].x = 490;
+			cell[i].y = 200+i*10;
+		}
+		if (choix == 3){
+			cell[i] = diamonds[index]
+			cell[i].x = 490;
+			cell[i].y = 200+i*10;
+			
+		}
+		if (i < 7){
+			cell[i].fliped = true;
+		}
+	}
+	return cell;
+}
+
+
+function render_cell(){
+	// cell 2
+	if (cell2[0].fliped == true){
+		cell2[0].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+	}
+	// cell 3
+	for (let i = 0; i<2; i++){
+		if (cell3[i].fliped == true){
+			cell3[i].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+		}
+	}
+	// cell 4
+	for (let i = 0; i<3; i++){
+		if (cell4[i].fliped == true){
+			cell4[i].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+		}
+	}
+	// cell 5
+	for (let i = 0; i<4; i++){
+		if (cell5[i].fliped == true){
+			cell5[i].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+		}
+	}
+	// cell 6
+	for (let i = 0; i<5; i++){
+		if (cell6[i].fliped == true){
+			cell6[i].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+		}
+	}
+	// cell 7
+	for (let i = 0; i<6; i++){
+		if (cell7[i].fliped == true){
+			cell7[i].image = "assets/Pixel Playing Cards Pack/back_black_basic.png";
+		}
+	}
 }
 
 function draw() {
