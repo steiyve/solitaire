@@ -96,15 +96,16 @@ function setup() {
 	spades = generate_spade(cards);
 	hearts = generate_heart(cards)
 	diamonds = generate_diamonds(cards);
-	cell1 = generate_first_cell();
-	cell2 = generate_second_cell();
-	cell3 = generate_third_cell();
-	cell4 = generate_fourth_cell();
-	cell5 = generate_fifth_cell();
-	cell6 = generate_sixth_cell();
-	cell7 = generate_senventh_cell();
-	render_cell();
-	console.log(cell2[0]);
+	cell1 = generate_cell(1, 70);
+	cell2 = generate_cell(2, 140);
+	cell3 = generate_cell(3, 210);
+	cell4 = generate_cell(4, 280);
+	cell5 = generate_cell(5, 350);
+	cell6 = generate_cell(6, 420);
+	cell7 = generate_cell(7, 490);
+	console.log(cell1);
+	//render_cell();
+	//console.log(cell2[0]);
 }
 
 
@@ -206,213 +207,33 @@ function generate_diamonds(cards){
 	return card
 }
 
-function generate_first_cell(){
-	let index = Math.floor(Math.random() * 13);
-	clubs[index].x = 70;
-	clubs[index].y = 200;
-	console.log(clubs[index]);
-	console.log("hello");
-	return clubs[index];
-}
 
-function generate_second_cell(){
+function generate_cell(numb_carte, pos_cell){
 	let cell = []
-	for (let i=0; i<2; i++){
+	for (let i = 0; i<numb_carte; i++){
 		let choix = Math.floor(Math.random() * 4);
 		let index = Math.floor(Math.random() * 13);
 		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 140;
-			cell[i].y = 200+i*10;
+			cell[i] = clubs[index];
 		}
 		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 140;
-			cell[i].y = 200+i*10;
+			cell[i] = spades[index];
 		}
 		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 140;
-			cell[i].y = 200+i*10;
+			cell[i] = hearts[index];
 		}
 		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 140;
-			cell[i].y = 200+i*10;
-			
+			cell[i] = diamonds[index];
 		}
-		if (i == 0){
+		cell[i].x = pos_cell;
+		cell[i].y = 200+i*10;
+		//console.log(cell[i].y)
+		if (i < numb_carte){
 			cell[i].fliped = true;
 		}
 	}
 	return cell;
 }
-
-function generate_third_cell(){
-	let cell = []
-	for (let i=0; i<3; i++){
-		let choix = Math.floor(Math.random() * 4);
-		let index = Math.floor(Math.random() * 13);
-		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 210;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 210;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 210;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 210;
-			cell[i].y = 200+i*10;
-			
-		}
-		if (i < 3){
-			cell[i].fliped = true;
-		}
-	}
-	return cell;
-}
-
-function generate_fourth_cell(){
-	let cell = []
-	for (let i=0; i<4; i++){
-		let choix = Math.floor(Math.random() * 4);
-		let index = Math.floor(Math.random() * 13);
-		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 280;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 280;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 280;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 280;
-			cell[i].y = 200+i*10;
-			
-		}
-		if (i < 4){
-			cell[i].fliped = true;
-		}
-	}
-	return cell;
-}
-
-function generate_fifth_cell(){
-	let cell = []
-	for (let i=0; i<5; i++){
-		let choix = Math.floor(Math.random() * 4);
-		let index = Math.floor(Math.random() * 13);
-		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 350;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 350;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 350;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 350;
-			cell[i].y = 200+i*10;
-			
-		}
-		if (i < 5){
-			cell[i].fliped = true;
-		}
-	}
-	return cell;
-}
-
-function generate_sixth_cell(){
-	let cell = []
-	for (let i=0; i<6; i++){
-		let choix = Math.floor(Math.random() * 4);
-		let index = Math.floor(Math.random() * 13);
-		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 420;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 420;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 420;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 420;
-			cell[i].y = 200+i*10;
-			
-		}
-		if (i < 6){
-			cell[i].fliped = true;
-		}
-	}
-	return cell;
-}
-
-function generate_senventh_cell(){
-	let cell = []
-	for (let i=0; i<7; i++){
-		let choix = Math.floor(Math.random() * 4);
-		let index = Math.floor(Math.random() * 13);
-		if (choix == 0){
-			cell[i] = clubs[index]
-			cell[i].x = 490;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 1){
-			cell[i] = spades[index]
-			cell[i].x = 490;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 2){
-			cell[i] = hearts[index]
-			cell[i].x = 490;
-			cell[i].y = 200+i*10;
-		}
-		if (choix == 3){
-			cell[i] = diamonds[index]
-			cell[i].x = 490;
-			cell[i].y = 200+i*10;
-			
-		}
-		if (i < 7){
-			cell[i].fliped = true;
-		}
-	}
-	return cell;
-}
-
 
 function render_cell(){
 	// cell 2
